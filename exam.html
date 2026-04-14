@@ -1,0 +1,272 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AMHARIC TO NUER EXAM | Nhial Gach Tut</title>
+    <style>
+        /* 1. RESTORE SKY BACKGROUND */
+        body {
+            background-image: url(1775235802116.jpg); 
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            font-family: 'Segoe UI', sans-serif;
+            color: white;
+            padding: 20px;
+            margin: 0;
+
+            min-height: 100vh;
+        }
+
+        .exam-container {
+            max-width: 900px;
+            margin: 50px auto;
+            background: rgba(0, 0, 0, 0.85); 
+            padding: 40px;
+            border-radius: 20px;
+            border: 2px solid #ff7200;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .header {
+            text-align: center;
+            border-bottom: 2px solid #ff7200;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .start-btn {
+            background: #ff7200;
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 8px;
+            font-size: 22px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .start-btn:hover { transform: scale(1.05); background: #e66700; }
+
+        .question-card {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 25px;
+            margin-top: 20px;
+            border-radius: 12px;
+
+            border-left: 5px solid #ff7200;
+        }
+
+        .amharic-word { color: #ff7200; font-size: 28px; font-weight: bold; }
+
+        .option-btn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            cursor: pointer;
+            text-align: left;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: 0.2s;
+
+        }
+
+        .option-btn:hover:not([disabled]) { background: #ff7200; border-color: #ff7200; }
+
+        /* CERTIFICATE STYLING */
+        #final-certificate {
+            display: none;
+            width: 1000px;
+            margin: 20px auto;
+            padding: 60px;
+            background: #fffaf0;
+            color: #1a1a1a;
+            border: 15px double #ff7200;
+            font-family: 'Times New Roman', serif;
+        }
+
+        .cert-inner { border: 2px solid #ff7200; padding: 40px; text-align: 
+
+center; }
+
+        @media print {
+            .no-print { display: none !important; }
+            body { background: white !important; }
+            #final-certificate { display: block !important; margin: 0; width: 100%; box-shadow: none; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="exam-container no-print" id="main-exam-box">
+    <div class="header">
+        <h1 style="font-size: 40px; margin: 0;">AMHARIC TO NUER EXAM</h1>
+        <p style="font-size: 18px; opacity: 
+
+0.9;">Thuk number ti 20 bi certificate du kulɛ jek.</p>
+    </div>
+
+    <div id="start-area" style="text-align: center; padding: 40px;">
+        <button class="start-btn" onclick="beginExam()">Tuok ɣɔndu</button>
+    </div>
+
+    <div id="questions-area" style="display: none;"></div>
+
+    <div style="text-align: center; margin-top: 30px;">
+        <button id="claim-btn" style="display:none; padding: 20px 50px; background: #ff7200; border: none; color: white; font-weight: bold; cursor: pointer; border-radius: 10px; font-size: 
+
+18px;" onclick="generateCert()">CLAIM PROFESSIONAL CERTIFICATE</button>
+    </div>
+</div>
+
+<div id="final-certificate">
+    <div class="cert-inner">
+        <div style="display:flex; justify-content: space-between; align-items: center; border-bottom: 3px solid #ff7200; padding-bottom: 20px;">
+            <div style="text-align:left;">
+                <h2 style="margin:0;">የባለሙያ መዝገበ ቃላት</h2>
+                <p style="margin:0; font-style:italic;">Professional Lexicon</p>
+            </div>
+            <div style="text-align:right;">
+                <h2 style="margin:0;">MAT FIDELI CIOKÄ BÄKƐL</h2>
+                <p style="margin:0; font-
+
+style:italic;">Thok Nath / Nuer</p>
+            </div>
+        </div>
+
+        <h1 style="font-size:60px; margin:40px 0 10px 0; color:#ff7200; letter-spacing:5px;">CERTIFICATE</h1>
+        <p style="font-size:22px; text-transform:uppercase; letter-spacing:3px;">OF COMPLETION</p>
+
+        <p style="font-size:24px; margin-top:40px;">This is to certify that</p>
+        <h1 id="cert-student-name" style="font-family: 'Georgia', serif; font-size: 65px; border-bottom: 2px solid #333; display: inline-block; padding: 0 40px; margin: 10px 0;">[Student Name]</h1>
+
+        <p style="font-size:22px; max-
+
+width:850px; margin:20px auto; line-height:1.6;">
+            Has successfully demonstrated mastery of the <b>Amharic-Nuer Translation Program</b>, including phonetic structures, professional lexicon, and cross-cultural linguistic systems.
+        </p>
+
+        <div style="margin-top:80px; display:flex; justify-content: space-around; align-items: flex-end;">
+            <div style="text-align:left;">
+                <p style="font-family: cursive; font-size:35px; margin:0; color: #ff7200;">Nhial Gach Tut</p>
+                <div style="border-top:2px solid #1a1a1a; width:280px;"></div>
+                <p style="font-weight:bold; margin:5px 0 0 0; font-size:20px;">Nhial Gach Tut</p>
+
+                <p style="margin:0; font-size:16px;">Lead Instructor & IT Expert</p>
+                <p style="margin:0; font-size:16px; color:#ff7200;">yohanisnhial@gmail.com</p>
+            </div>
+
+            <div style="text-align:center;">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=VerifiedByNhialGachTut" alt="QR" style="border:1px solid #ddd; padding:5px;">
+                <p style="font-size:12px; margin-top:5px; font-weight:bold;">VALIDATION ID: 2026-ANTH</p>
+            </div>
+        </div>
+
+    </div>
+    <div style="text-align:center; margin-top:40px;" class="no-print">
+        <button onclick="window.print()" style="padding:15px 40px; background:#ff7200; color:white; border:none; border-radius:8px; cursor:pointer; font-weight:bold; font-size:18px;">Download as PDF / Print</button>
+    </div>
+</div>
+
+<script>
+    // 2. THE 20 QUESTIONS DATA
+    const examData = [
+        { q: "What is the Nuer word for: <span class='amharic-word'>አንበሳ</span> (Lion)?", a: "Luony", o: ["Kuac", "Luony", "Yaŋ", "Nyaw"] },
+        { q: "What is the Nuer word for: <span 
+
+class='amharic-word'>ላም</span> (Cow)?", a: "Yaŋ", o: ["Juɔk", "Dit", "Yaŋ", "Reec"] },
+        { q: "What is the Nuer word for: <span class='amharic-word'>ውሃ</span> (Water)?", a: "Pii", o: ["Mun", "Kur", "Pii", "Jiath"] },
+        { q: "What is the Nuer word for: <span class='amharic-word'>ቀይ</span> (Red)?", a: "Lual", o: ["Car", "Lual", "Bor", "Peat"] },
+        { q: "What is the Nuer word for: <span class='amharic-word'>ዛፍ</span> (Tree)?", a: "Jiath", o: ["Jiath", "Mun", "Kur", "Pii"] },
+        { q: "What is the Nuer word for: <span class='amharic-word'>ድንጋይ</span> (Stone)?", a: "Pam", o: ["Pii", "Mun", "Jiath", "Kur"] },
+        { q: "What is the Nuer word for: <span class='amharic-word'>ጥቁር</span> 
+
+(Black)?", a: "Car", o: ["Bor", "Car", "Lual", "Peat"] },
+        { q: "What is the Nuer word for: <span class='amharic-word'>ነጭ</span> (White)?", a: "Bor", o: ["Lual", "Peat", "Bor", "Car"] },
+        { q: "What is the Nuer word for: <span class='amharic-word'>ውሻ</span> (Dog)?", a: "Jok", o: ["Nyaw", "Juɔk", "Kuic", "Yaŋ"] },
+        { q: "What is the Nuer word for: <span class='amharic-word'>አረንጓዴ</span> (Green)?", a: "Toc", o: ["Bor", "Lual", "Peat", "Car"] },
+        { q: "What is the Nuer word for: <span class='amharic-word'>ቃላት</span> (Word)?", a: "Riet", o: ["Ruac", "Tiidhe", "Thok", "Fidel"] },
+        { q: "What is the Nuer word for: <span class='amharic-word'>አረፍተ ነገር</span> (Sentence)?", a: "Ruac", o: ["Ruac", 
+
+"Thok", "Tiidhe", "Fidel"] },
+        { q: "What is the Nuer word for: <span class='amharic-word'>ጊዜ</span> (Time)?", a: "Thiaŋ", o: ["Cäŋ", "Ruɔn", "Thiaŋ", "Riaw"] },
+        { q: "What is the Nuer word for: <span class='amharic-word'>ቀን</span> (Day)?", a: "Cäŋ", o: ["Cäŋ", "Ruɔn", "Riaw", "Thiaŋ"] },
+        { q: "What is the Nuer word for: <span class='amharic-word'>አመት</span> (Year)?", a: "Ruɔn", o: ["Thiaŋ", "Ruɔn", "Cäŋ", "Riaw"] },
+        { q: "What is the Nuer word for: <span class='amharic-word'>ጥዋት</span> (Morning)?", a: "Riaw", o: ["Riaw", "Cäŋ", "Thiaŋ", "Ruɔn"] },
+        { q: "What is the Nuer word for: <span class='amharic-word'>መሬት</span> (Earth)?", a: "wWicmoun", o: ["Mun", "Kur", "Pii", "Jiath"] },
+
+        { q: "What is the Nuer word for: <span class='amharic-word'>ድመት</span> (Cat)?", a: "Nyaw", o: ["Juɔk", "Nyaw", "Kuic", "Yaŋ"] },
+        { q: "Phonetically, the Fidel <span class='amharic-word'>ለ</span> sounds like:", a: "l", o: ["h", "m", "l", "r"] },
+        { q: "Phonetically, the Fidel <span class='amharic-word'>መ</span> sounds like:", a: "m", o: ["s", "m", "h", "q"] }
+    ];
+
+    function beginExam() {
+        document.getElementById('start-area').style.display = 'none';
+        const qArea = document.getElementById('questions-area');
+        qArea.style.display = 'block';
+
+        examData.forEach((item, index) => {
+
+            let html = `
+                <div class="question-card">
+                    <p style="font-size: 20px; font-weight: 500;">Question ${index + 1}: ${item.q}</p>
+                    <div style="margin-top: 15px;">
+                        ${item.o.map(opt => `<button class="option-btn" onclick="check(this, '${opt}', '${item.a}', ${index})">${opt}</button>`).join('')}
+                    </div>
+                </div>`;
+            qArea.innerHTML += html;
+        });
+    }
+
+    let answered = 0;
+    function check(btn, choice, correct, index) {
+        const parent = btn.parentElement;
+
+        const buttons = parent.querySelectorAll('button');
+        
+        buttons.forEach(b => b.disabled = true); // Disable options after choice
+
+        if (choice === correct) {
+            btn.style.background = "#2ecc71"; // Correct Green
+            btn.style.borderColor = "#2ecc71";
+        } else {
+            btn.style.background = "#e74c3c"; // Wrong Red
+            btn.style.borderColor = "#e74c3c";
+        }
+
+        answered++;
+        if (answered >= examData.length) {
+            document.getElementById('claim-btn').style.display = 'inline-block';
+            document.getElementById('claim-
+
+btn').scrollIntoView({ behavior: 'smooth' });
+        }
+    }
+
+    function generateCert() {
+        const student = prompt("Please enter your full name for the certificate:");
+        if (student) {
+            document.getElementById('main-exam-box').style.display = 'none';
+            document.getElementById('final-certificate').style.display = 'block';
+            document.getElementById('cert-student-name').innerText = student;
+            window.scrollTo(0, 0);
+        }
+    }
+</script>
+</body>
+
+</html>
+document.getElementById('board-content').innerHTML = `
+<div style="text-align: center; padding:40px;">
+    <p>You have completed all modules. Are you ready for the exam?</p>
+    <a href="exam.html" class="next-btn">
+        CLICK HERE TO START THE FINAL EXAM
+    </a>
+</div>

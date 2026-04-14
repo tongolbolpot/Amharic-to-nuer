@@ -1,0 +1,269 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amharic to Nuer | Professional Lexicon</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-image: url(.vscode/1775235802116.jpg); 
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            font-family: 'Segoe UI', Roboto, sans-serif;
+
+            color: #fff;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container { display: flex; max-width: 1700px; margin: 0 auto; gap: 25px; height: 94vh; }
+
+        /* Sidebar Glassmorphism */
+        .sidebar {
+            width: 420px; 
+            background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 30px; 
+            overflow-y: auto;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+
+        }
+
+        .sidebar h2 { 
+            color: #ff7200; 
+            font-size: 22px; 
+            margin-bottom: 30px; 
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-bottom: 2px solid #ff7200;
+            padding-bottom: 12px;
+        }
+
+        .course-link {
+            padding: 20px; 
+            margin-bottom: 15px;
+            background: rgba(255, 255, 255, 0.05); 
+            border-radius: 12px;
+            cursor: pointer; 
+            transition: 0.3s; 
+            border: 1px solid transparent;
+
+        }
+
+        .course-link:hover { 
+            background: rgba(255, 114, 0, 0.15); 
+            border-color: #ff7200;
+        }
+
+        .course-link.active { 
+            background: #ff7200;
+            color: #fff; 
+            font-weight: 800;
+            box-shadow: 0 5px 15px rgba(255, 114, 0, 0.4);
+        }
+
+        .course-link .title { display: block; font-size: 16px; text-transform: uppercase; }
+        .course-link .desc { display: block; font-size: 12px; opacity: 0.7; margin-top: 
+
+5px; }
+
+        /* Board Container */
+        .board-container {
+            flex-grow: 1; 
+            background: rgba(0, 0, 0, 0.6); 
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 25px;
+            padding: 60px; 
+            overflow-y: auto; 
+            display: flex; 
+            flex-direction: column;
+        }
+
+        /* HEAVY TYPOGRAPHY STYLE (Like your Landing Page) */
+        #welcome-section { margin-top: 50px; text-align: left; }
+        
+
+        #welcome-msg-main { 
+            font-size: 90px; 
+            font-weight: 900;
+            color: #ffffff; 
+            line-height: 0.85;
+            margin-bottom: 20px;
+            letter-spacing: -3px;
+        }
+
+        .highlight-orange { color: #ff7200; }
+
+        #welcome-msg-sub { 
+            font-size: 22px; 
+            color: #ffffff; 
+            font-weight: 400;
+            max-width: 550px;
+            line-height: 1.5;
+            opacity: 0.9;
+        }
+
+        .board-header { 
+
+            font-size: 48px; 
+            color: #ff7200; 
+            font-weight: 900;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+        }
+
+        /* Fidel & Vocab Layouts */
+        .fidel-row { 
+            display: grid; 
+            grid-template-columns: repeat(8, 1fr); 
+            gap: 15px; 
+            padding: 20px 0; 
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
+        }
+
+        .fidel-box { 
+            text-align: center; 
+
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.07);
+            border-radius: 12px;
+            transition: 0.2s;
+        }
+        .fidel-box:hover { background: rgba(255, 255, 255, 0.15); }
+        .fidel-box .am { font-size: 42px; font-weight: bold; color: #fff; }
+        .fidel-box .en { font-size: 16px; color: #ff7200; font-weight: bold; margin-top: 8px; }
+
+        .vocab-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .vocab-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 25px;
+            border-radius: 15px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-left: 6px solid #ff7200;
+        }
+
+        .next-btn {
+            background: #ff7200; 
+            color: #fff; 
+            padding: 20px 50px;
+            border: none; 
+            border-radius: 10px; 
+            cursor: pointer;
+            font-weight: 900; 
+            align-self: flex-start; 
+            margin-top: 50px; 
+            display: none;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+        .next-btn:hover { background: 
+
+#e66700; transform: scale(1.05); }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="sidebar">
+        <h2>Amharic - Nuer</h2>
+        <div class="course-link" onclick="load(1)"><span class="title">FIDEL CIOKÄ KƐL</span><span class="desc">Course 01 | Foundation</span></div>
+        <div class="course-link" onclick="load(2)"><span class="title">FIDEL CIOKÄ RƐW</span><span class="desc">Course 02 | Progression</span></div>
+        <div class="course-link" onclick="load(3)"><span 
+
+class="title">FIDEL CIOKÄ DIƆK</span><span class="desc">Course 03 | Intermediate</span></div>
+        <div class="course-link" onclick="load(4)"><span class="title">FIDEL CIOKÄ ŊƆAN</span><span class="desc">Course 04 | Proficiency</span></div>
+        <div class="course-link" onclick="load(5)"><span class="title">FIDEL CIOKÄ DHIEC</span><span class="desc">Course 05 | Completion</span></div>
+        <div class="course-link" onclick="load(6)"><span class="title">MAT FIDELI CIOKÄ BÄKƐL</span><span class="desc">Linguistic Structures</span></div>
+        <div class="course-link" onclick="load(7)"><span class="title">CIOT ŊƆANI CIOKÄ 
+
+BÄRIƆW</span><span class="desc">Animal Kingdom</span></div>
+        <div class="course-link" onclick="load(8)"><span class="title">CIOT ŊƆANI CIOKÄ BÄDÄK</span><span class="desc">Cycles of Time</span></div>
+        <div class="course-link" onclick="load(9)"><span class="title">CIOT ŊƆANI CIOKÄ BÄŊƆAN</span><span class="desc">Color Spectrum</span></div>
+        <div class="course-link" onclick="load(10)"><span class="title">CIOT ŊƆANI CIOKÄ WÄL</span><span class="desc">Material Studies</span></div>
+    </div>
+
+    <div class="board-container">
+
+        <div id="welcome-section">
+            <div id="welcome-msg-main">
+                BER KƐ <br>
+                <span class="highlight-orange">MAL.</span>
+            </div>
+            <div id="welcome-msg-sub">
+                Lep ciok kɛl mi bi guic. (Welcome, select a course to start your translation journey).
+            </div>
+        </div>
+
+        <div id="board-title" class="board-header"></div>
+        <div id="board-content"></div>
+        <button id="next-btn" class="next-btn" onclick="goNext()">PROCEED TO NEXT MODULE</button>
+    </div>
+</div>
+
+
+<script>
+let active = 0;
+const names = ["", "FIDEL CIOKÄ KƐL", "FIDEL CIOKÄ RƐW", "FIDEL CIOKÄ DIƆK", "FIDEL CIOKÄ ŊƆAN", "FIDEL CIOKÄ DHIEC", "MAT FIDELI CIOKÄ BÄKƐL", "CIOT ŊƆANI CIOKÄ BÄRIƆW", "CIOT ŊƆANI CIOKÄ BÄDÄK", "CIOT ŊƆANI CIOKÄ BÄŊƆAN", "CIOT ŊƆANI CIOKÄ WÄL"];
+
+const allFidels = [
+    ["ሀ","ሁ","ሂ","ሃ","ሄ","ህ","ሆ","ኋ","h"], ["ለ","ሉ","ሊ","ላ","ሌ","ል","ሎ","ሏ","l"], ["ሐ","ሑ","ሒ","ሓ","ሔ","ሕ","ሖ","ሗ","h"], ["መ","ሙ","ሚ","ማ","ሜ","ም","ሞ","ሟ","m"], 
+
+["ሠ","ሡ","ሢ","ሣ","ሤ","ሥ","ሦ","ሧ","s"], ["ረ","ሩ","ሪ","ራ","ሬ","ር","ሮ","ሯ","r"], ["ሰ","ሱ","ሲ","ሳ","ሴ","ስ","ሶ","ሷ","s"],
+    ["ሸ","ሹ","ሺ","ሻ","ሼ","ሽ","ሾ","ሿ","sh"], ["ቀ","ቁ","ቂ","ቃ","ቄ","ቅ","ቆ","ቋ","q"], ["በ","ቡ","ቢ","ባ","ቤ","ብ","ቦ","ቧ","b"], ["ተ","ቱ","ቲ","ታ","ቴ","ት","ቶ","ቷ","t"], ["ቸ","ቹ","ቺ","ቻ","ቼ","ች","ቾ","ቿ","ch"], ["ኀ","ኁ","ኂ","ኃ","ኄ","ኅ","ኆ","ኋ","h"], ["ነ","ኑ","ኒ","ና","ኔ","ን","ኖ","ኗ","n"],
+    ["ኘ","ኙ","ኚ","ኛ","ኜ","ኝ","ኞ","ኟ","ny"], ["አ","ኡ","ኢ","ኣ","ኤ","እ","ኦ","ኧ","a"], ["ከ","ኩ","ኪ","ካ","ኬ","ክ","ኮ","ኳ","k"], ["ኸ","ኹ","ኺ","ኻ","ኼ","ኽ","ኾ","ዃ","
+
+h"], ["ወ","ዉ","ዊ","ዋ","ዌ","ው","ዎ","ዏ","w"], ["ዐ","ዑ","ዒ","ዓ","ዔ","ዕ","ዖ","—","a"], ["ዘ","ዙ","ዚ","ዛ","ዜ","ዝ","ዞ","ዟ","z"],
+    ["ዠ","ዡ","ዢ","ዣ","ዤ","ዥ","ዦ","ዧ","zh"], ["የ","ዩ","ዪ","ያ","ዬ","ይ","ዮ","ዯ","y"], ["ደ","ዱ","ዲ","ዳ","ዴ","ድ","ዶ","ዷ","d"], ["ጀ","ጁ","ጂ","ጃ","ጄ","ጅ","ጆ","ጇ","j"], ["ገ","ጉ","ጊ","ጋ","ጌ","ግ","ጎ","ጓ","g"], ["ጠ","ጡ","ጢ","ጣ","ጤ","ጥ","ጦ","ጧ","t"], ["ጨ","ጩ","ጪ","ጫ","ጬ","ጭ","ጮ","ጯ","ch"],
+    ["ጰ","ጱ","ጲ","ጳ","ጴ","ጵ","ጶ","ጷ","p"], ["ጸ","ጹ","ጺ","ጻ","ጼ","ጽ","ጾ","ጿ","s"], 
+
+["ፀ","ፁ","ፂ","ፃ","ፄ","ፅ","ፆ","ፇ","s"], ["ፈ","ፉ","ፊ","ፋ","ፌ","ፍ","ፎ","ፏ","f"], ["ፐ","ፑ","ፒ","ፓ","ፔ","ፕ","ፖ","ፗ","p"], ["ቨ","ቩ","ቪ","ቫ","ቬ","ቭ","ቮ","ቯ","v"]
+];
+
+const vocabData = {
+    6: [["Sentence", "Ruac"], ["Word", "Riet"], ["Verb", "rit"], ["Language", "Thok nath"]],
+    7: [["Lion", "lony"], ["Cow", "Yaŋ"], ["Dog", "Jok"], ["Bird", "Dit"]],
+    8: [["Day", "Cäŋ"], ["Year", "Ruɔn"], ["Time", "Guath"], ["Morning", "Runwang"]],
+    9: [["Red", "Lual"], ["Black", "Car"], ["White", "Bor"], ["Green", "toc"]],
+    10: [["Stone", "pam"], ["Tree", "Jiath"], ["Water", "Pii"], ["Earth", "wicmuon"]]
+};
+
+function load(n) {
+    active = n;
+    document.getElementById('welcome-section').style.display = 'none';
+    document.getElementById('next-btn').style.display = 'block';
+    document.getElementById('board-title').innerText = names[n];
+    document.querySelectorAll('.course-link').forEach((l, i) => l.classList.toggle('active', i+1 === n));
+    const display = document.getElementById('board-content');
+    display.innerHTML = "";
+
+    if (n <= 5) {
+        let start = (n - 1) * 7;
+        let end = n === 5 ? 34 : start + 7;
+        let rows = allFidels.slice(start, end);
+        rows.forEach(r => {
+
+            let rowHtml = `<div class="fidel-row">`;
+            for(let i=0; i<8; i++) rowHtml += `<div class="fidel-box"><span class="am">${r[i]}</span><br><span class="en">${r[8]}</span></div>`;
+            display.innerHTML += rowHtml + `</div>`;
+        });
+    } else {
+        let html = `<div class="vocab-grid">`;
+        vocabData[n].forEach(item => {
+            html += `<div class="vocab-card"><span style="font-size:28px; font-weight:bold;">${item[0]}</span><span style="color:#ff7200; font-size:24px; font-weight:900;">${item[1]}</span></div>`;
+        });
+        display.innerHTML = html + `</div>`;
+    }
+
+}
